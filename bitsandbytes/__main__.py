@@ -8,6 +8,7 @@ from typing import Tuple
 from os.path import isdir
 
 import torch
+import platform
 
 HEADER_WIDTH = 60
 
@@ -40,6 +41,9 @@ def find_file_recursive(folder, filename):
 
 
 def generate_bug_report_information():
+    if platform.system() == "Windows":
+        return
+    
     print_header("")
     print_header("BUG REPORT INFORMATION")
     print_header("")
